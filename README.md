@@ -4,31 +4,56 @@
 
 MongoDB model plugin for Fend.js
 
+# Installing
+
+```
+$ npm install fendjs-model-mongo
+```
+
 # Usage
 
 ```js
 var Modeler = require('fendjs-model');
 var Mongorable = require('fendjs-model-mongo');
 
-Modeler.use(Mongorable('mongodb://localhost/test'));
+Mongorable.connect({
+  database: 'test',
+  host: 'localhost',
+  port: 27017
+}, function (err) {
+  Modeler.use(Mongorable());
+  var Pet = Modeler('Pet')
+    .attr('id')
+    .attr('name');
 
-var Pet = Modeler('Pet')
-  .attr('id')
-  .attr('name');
+  var pet = new Pet({ name: 'Tobi', species: 'Ferret' });
+  pet.save(function (err, res) {
+    if (err) {
+      // Error something todo ...
+      return;
+    }
+    // Something todo ...
 
-var pet = new Pet({ name: 'Tobi', species: 'Ferret' });
-pet.save(function (err, res) {
-  if (err) {
-    // Error something todo ...
-    return;
-  }
-  // Something todo ...
+    Mongorable.disconnect(function (err) {
+      // ...
+    });
+  });
 });
 ```
 
 # API
 
-TODO:
+## Mongorable()
+
+Extend mongorable model plugin constructor.
+
+## Mongorable.connect(options, fn)
+
+Connect mongodb.
+
+## Mongorable.disconnect(fn)
+
+Disconnect mongodb.
 
 # Testing
 
