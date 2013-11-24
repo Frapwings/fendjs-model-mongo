@@ -1,4 +1,6 @@
 - [ ] Write Operations (save/findAndModify/findAndRemove/remove...)
 - [ ] Other model operation (find etc ...)
+- [ ] Server settings
 - [ ] Error message
+- [ ] Support replicaset and sharding
 - [ ] Schema or Type check ??
