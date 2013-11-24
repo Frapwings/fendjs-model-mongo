@@ -13,9 +13,9 @@ test-coveralls: lib-cov
 	@rm -rf ./lib-cov
 
 lib-cov:
-	@./node_modules/.bin/jscoverage ./index.js ./lib-cov/index.js
+	@./node_modules/.bin/jscoverage ./lib ./lib-cov
 
 clean:
-	@rm ./coverage.html
+	@rm -f ./coverage.html
 
 .PHONY: test test-cov test-coveralls lib-cov clean
