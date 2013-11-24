@@ -1,6 +1,6 @@
 {
   "name": "fendjs-model-mongo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "MongoDB model plugin for Fend.js",
   "repository": {
     "type": "git",
